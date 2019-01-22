@@ -11,9 +11,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
+//This is a JRA which connects OOP to Relational Databases.
+//The @Entity tells JRA that this needs connect. 
 @Entity
 public class Book {
 	
+	//With relational DB we need and id, this is a bleed because we don't care in OOP about ID normally.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -21,7 +24,10 @@ public class Book {
 	private String isbn;
 	private String publisher;
 	
+	//When we have a set we need to tell JRA how to handle the sets if there are 2 sets that are used in different classes it is a Many to Many relationship.
 	@ManyToMany
+	//@JoinTable is how you join to tables that will generated separately by default together.
+	//@JoinColumn tells JRA how to join columns together and the name that new merged column should be called.
 	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
 	inverseJoinColumns = @JoinColumn(name = "author_id"))
 	private Set<Author> authors = new HashSet<>();
@@ -80,4 +86,38 @@ public class Book {
 	public void setAuthors(Set<Author> authors) {
 		this.authors = authors;
 	}
+
+	//Hash code and equals is needed when you need a unique id BUT don't have a real world business key.
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", publisher=" + publisher + ", authors="
+				+ authors + "]";
+	}
+	
+	
 }
