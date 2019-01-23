@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 //This is a JRA which connects OOP to Relational Databases.
 //The @Entity tells JRA that this needs connect. 
@@ -22,7 +23,8 @@ public class Book {
 	private Long id;
 	private String title;
 	private String isbn;
-	private String publisher;
+	@OneToOne
+	private Publisher publisher;
 	
 	//When we have a set we need to tell JRA how to handle the sets if there are 2 sets that are used in different classes it is a Many to Many relationship.
 	@ManyToMany
@@ -32,15 +34,15 @@ public class Book {
 	inverseJoinColumns = @JoinColumn(name = "author_id"))
 	private Set<Author> authors = new HashSet<>();
 
-	public Book(String title, String isbn, String publisher, Set<Author> authors) {
+	public Book(String title, String isbn, Set<Author> authors, Publisher publisher) {
 		super();
 		this.setTitle(title);
 		this.setIsbn(isbn);
-		this.setPublisher(publisher);
 		this.setAuthors(authors);
+		this.setPublisher(publisher);
 	}
 
-	public Book(String title, String isbn, String publisher) {
+	public Book(String title, String isbn, Publisher publisher) {
 		super();
 		this.setTitle(title);
 		this.setIsbn(isbn);
@@ -71,11 +73,11 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public String getPublisher() {
+	public Publisher getPublisher() {
 		return publisher;
 	}
 
-	public void setPublisher(String publisher) {
+	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
 	}
 
@@ -115,8 +117,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", publisher=" + publisher + ", authors="
-				+ authors + "]";
+		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", authors=" + authors + "]";
 	}
 	
 	
