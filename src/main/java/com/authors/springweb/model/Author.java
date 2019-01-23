@@ -1,4 +1,4 @@
-package com.petclient.springweb.model;
+package com.authors.springweb.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,17 +22,14 @@ public class Author {
 	private Set<Book> books = new HashSet<>();
 
 	public Author() {
-		super();
 	}
 	
 	public Author(String firstname, String lastname) {
-		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
 	
 	public Author(String firstname, String lastname, Set<Book> books) {
-		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.books = books;
