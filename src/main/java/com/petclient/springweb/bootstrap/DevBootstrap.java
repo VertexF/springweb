@@ -19,7 +19,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 	private PublisherRepository publisherRepository;
 	
 	public DevBootstrap(AuthorRepository authorRepository, BookRepository bookRepository, PublisherRepository publisherRepository) {
-		super();
 		this.authorRepository = authorRepository;
 		this.bookRepository = bookRepository;
 		this.publisherRepository = publisherRepository;
