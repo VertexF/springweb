@@ -1,8 +1,9 @@
-package com.petclient.springweb.repositories;
+package com.authors.springweb.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.petclient.springweb.model.Book;
+import com.authors.springweb.model.Book;
+
 
 public interface BookRepository extends CrudRepository<Book, Long>{
 

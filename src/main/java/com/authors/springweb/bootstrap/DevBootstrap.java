@@ -1,15 +1,15 @@
-package com.petclient.springweb.bootstrap;
+package com.authors.springweb.bootstrap;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import com.petclient.springweb.model.Author;
-import com.petclient.springweb.model.Book;
-import com.petclient.springweb.model.Publisher;
-import com.petclient.springweb.repositories.AuthorRepository;
-import com.petclient.springweb.repositories.BookRepository;
-import com.petclient.springweb.repositories.PublisherRepository;
+import com.authors.springweb.model.Author;
+import com.authors.springweb.model.Book;
+import com.authors.springweb.model.Publisher;
+import com.authors.springweb.repositories.AuthorRepository;
+import com.authors.springweb.repositories.BookRepository;
+import com.authors.springweb.repositories.PublisherRepository;
 
 @Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {

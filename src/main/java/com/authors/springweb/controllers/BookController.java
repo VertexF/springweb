@@ -1,11 +1,11 @@
-package com.petclient.springweb.controllers;
+package com.authors.springweb.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.petclient.springweb.repositories.BookRepository;
+import com.authors.springweb.repositories.BookRepository;
 
 @Controller
 public class BookController {
@@ -17,9 +17,6 @@ public class BookController {
 		super();
 		this.bookRepository = bookRepository;
 	}
-
-	//public BookController() {}
-
 
 	@RequestMapping("/books")
 	public String getBooks(Model model) {

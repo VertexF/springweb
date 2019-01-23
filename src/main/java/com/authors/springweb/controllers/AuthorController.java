@@ -1,10 +1,10 @@
-package com.petclient.springweb.controllers;
+package com.authors.springweb.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.petclient.springweb.repositories.AuthorRepository;
+import com.authors.springweb.repositories.AuthorRepository;
 
 @Controller
 public class AuthorController {

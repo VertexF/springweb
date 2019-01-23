@@ -1,4 +1,4 @@
-package com.petclient.springweb.model;
+package com.authors.springweb.model;
 
 import java.util.HashSet;
 import java.util.Set;
